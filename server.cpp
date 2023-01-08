@@ -54,7 +54,9 @@ int server(int argc, char *argv[])
     //n = read(newsockfd, buffer, 255); //citanie vstupu od klienta cez buffer
     DATA data;
     data_init(&data, newsockfd);
-
+    //!!!!!!!!!!!
+    //TREBA TU VYTVORIT LOOP KDE PRE KAZDEHO PRIPOJENEHO SA VYTVORI NOVY THREAD NA KOMUNIKACIU S NIM
+    //!!!!!!!!!!!
     //vytvorenie vlakna pre zapisovanie dat do socketu <pthread.h>
     pthread_t thread;
     pthread_create(&thread, NULL, data_writeData, (void *)&data);
